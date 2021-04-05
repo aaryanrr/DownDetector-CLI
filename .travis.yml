@@ -15,6 +15,11 @@ python:
 install:
   - pip3 install -r requirements.txt
 
+# Commands to be executed before script
+before_script:
+  - cd src/
+
 # Test command
 script:
   - python3 Scraper.py
+  - python3 Errors.py
