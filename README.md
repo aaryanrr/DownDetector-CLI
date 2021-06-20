@@ -5,6 +5,7 @@
 # CLI for [DownDetector](https://downdetector.com/)
 
 ## Description
+
 > *It scrapes the status message from DownDetector's Website and shows it in the terminal.
 So you don't need to open up the Website for checking the status of a service.*
 
