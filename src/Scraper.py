@@ -8,8 +8,8 @@ from .Errors import InvalidServiceName
 
 # Class for thw URL Instance
 class URLInstance(object):
-    
-    url = "https://downdetector.com/status"
+
+    url = "https://downdetector.com/status/"
 
     def __init__(self, service_name):
         self.url = f"{self.url}" + service_name
