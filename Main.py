@@ -1,8 +1,8 @@
-from src.Scraper import URLInstance, ShowMenu, CheckConnection
+from src.Scraper import URLInstance, menu, check_connection
 
 # Checking the Internet Connection on Startup
 print("Checking Internet Connection..")
-CheckConnection()
+check_connection()
 
 name = input("Enter the Name of the Service: ")
 # Creating the Instance
@@ -16,24 +16,24 @@ else:
     pass
 
 # Showing the Menu and Processing the Input
-ShowMenu()
+menu()
 
 while True:
 
     option = int(input("Enter the Option Number: "))
     if option == 1:
-        instance.GetStatus()
+        instance.get_status()
     elif option == 2:
-        instance.OpenURL()
+        instance.open_url()
     elif option == 3:
-        instance.GetURL()
+        instance.get_url()
     elif option == 4:
-        instance.GetBaseURL()
+        instance.get_base_url()
     elif option == 5:
         name = input("Enter the Name of the Service: ")
         # Overwriting the Previous Instance Object
         instance = URLInstance(name)
-        ShowMenu()
+        menu()
     elif option == 6:
         print("Thanks for Using!")
         quit()
