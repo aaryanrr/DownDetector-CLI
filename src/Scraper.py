@@ -3,7 +3,7 @@ import requests
 from requests.exceptions import ConnectionError
 from bs4 import BeautifulSoup
 
-from .Errors import InvalidServiceName
+import src.Errors as Errors
 
 
 # Class for thw URL Instance
@@ -31,7 +31,7 @@ class URLInstance(object):
         except AttributeError:
             # Expecting AttributeError if the Name given is Invalid
             # A NoneType object won't have the attribute .text as used above
-            raise InvalidServiceName("Name of the Service is Invalid!")
+            raise Errors.InvalidServiceName("Name of the Service is Invalid!")
         else:
             pass
 

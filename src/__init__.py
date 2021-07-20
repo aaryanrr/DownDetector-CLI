@@ -1,2 +1,1 @@
-from src.Scraper import *
-from src.Errors import *
+__all__ = ['Scraper', 'Errors']
