@@ -1,7 +1,7 @@
 atomicwrites==1.4.0
 attrs==20.3.0
 beautifulsoup4==4.9.3
-certifi==2023.7.22
+certifi==2024.7.4
 chardet==4.0.0
 colorama==0.4.4
 html5lib==1.1
