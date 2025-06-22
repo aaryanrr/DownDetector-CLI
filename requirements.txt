@@ -16,5 +16,5 @@ requests==2.32.4
 six==1.16.0
 soupsieve==2.2.1
 toml==0.10.2
-urllib3==1.26.19
+urllib3==2.5.0
 webencodings==0.5.1
