@@ -1,6 +1,5 @@
 import webbrowser
 import requests
-from requests.exceptions import ConnectionError
 from bs4 import BeautifulSoup
 
 import src.Errors as Errors
@@ -123,7 +122,7 @@ def check_connection():
         response = requests.get("https://downdetector.com", headers={"User-Agent": USER_AGENT}, timeout=10)
         response.raise_for_status()
         print("All Good 👍")
-    except ConnectionError:
+    except requests.exceptions.ConnectionError:
         print("This program requires an active Internet Connection!")
         quit()
     except requests.exceptions.Timeout:
