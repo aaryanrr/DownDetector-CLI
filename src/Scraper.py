@@ -23,6 +23,9 @@ DEFAULT_HEADERS = {
     "Referer": "https://www.google.com/"
 }
 
+# Minimum length for status text to be considered valid
+MIN_STATUS_TEXT_LENGTH = 5
+
 
 # Class for the URL Instance
 class URLInstance(object):
@@ -67,7 +70,7 @@ class URLInstance(object):
                     if any('status' in str(c).lower() or 'entry-title' in str(c).lower() for c in class_names):
                         text = elem.text.strip()
                         # Filter out very short text or common non-status text
-                        if text and len(text) > 5 and text.lower() not in ['status', 'info', 'information']:
+                        if text and len(text) > MIN_STATUS_TEXT_LENGTH and text.lower() not in ['status', 'info', 'information']:
                             return True
                     return False
                 
@@ -93,13 +96,9 @@ class URLInstance(object):
                     "Could not find status information. The service name may be invalid or the page structure has changed."
                 )
 
-        except AttributeError:
-            # Expecting AttributeError if the Name given is Invalid
-            # A NoneType object won't have the attribute .text as used above
-            raise Errors.InvalidServiceName("Name of the Service is Invalid!")
         except requests.exceptions.RequestException as e:
             print(f"Error fetching the page: {e}")
-            raise Errors.InvalidServiceName("Could not fetch the page. Please check your internet connection and try again.")
+            raise Errors.NetworkError("Could not fetch the page. Please check your internet connection and try again.")
         except Exception as e:
             print(f"Unexpected error: {e}")
             raise

@@ -1,4 +1,5 @@
 from src.Scraper import URLInstance, menu, check_connection
+import src.Errors as Errors
 
 # Checking the Internet Connection on Startup
 print("Checking Internet Connection..")
@@ -22,7 +23,12 @@ while True:
 
     option = int(input("Enter the Option Number: "))
     if option == 1:
-        instance.get_status()
+        try:
+            instance.get_status()
+        except Errors.InvalidServiceName as e:
+            print(f"Service Error: {e}")
+        except Errors.NetworkError as e:
+            print(f"Network Error: {e}")
     elif option == 2:
         instance.open_url()
     elif option == 3:
