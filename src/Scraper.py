@@ -92,7 +92,9 @@ class URLInstance(object):
                 print(status_text)
             else:
                 raise Errors.InvalidServiceName(
-                    "Could not find status information. The service name may be invalid or the page structure has changed."
+                    f"Unable to find status for '{self.url.split('/')[-1]}'. "
+                    "Please verify the service name is correct (e.g., 'facebook', 'twitter', 'instagram'). "
+                    "Visit https://downdetector.com to confirm the service exists."
                 )
 
         except requests.exceptions.RequestException as e:
