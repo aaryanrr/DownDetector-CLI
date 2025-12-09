@@ -1,1 +1,1 @@
-__all__ = ['Scraper', 'Errors']
+__all__ = ["Scraper", "Errors"]
